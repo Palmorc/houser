@@ -10,11 +10,15 @@ const port = 3005
 
 app.use(bodyParser.json())
 
+
 massive(process.env.CONNECTION_STRING).then(db=>{
   console.log('Connected');
   app.set('db',db)
 }).catch(err =>{
   console.log('Error, no connection', err);
 })
+
+//ENDPOINTS
+app.get('/api/houses', cont.get)
 
 app.listen(port, () => {console.log(`Server is listening on port: ${port}`);})
