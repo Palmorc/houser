@@ -17,8 +17,9 @@ massive(process.env.CONNECTION_STRING).then(db=>{
 }).catch(err =>{
   console.log('Error, no connection', err);
 })
-
+console.log(33333)
 //ENDPOINTS
 app.get('/api/houses', cont.get)
+
 
 app.listen(port, () => {console.log(`Server is listening on port: ${port}`);})

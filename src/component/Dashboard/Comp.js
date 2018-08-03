@@ -11,19 +11,20 @@ export default class DashComp extends Component{
     }
   }
 
-  getHouses = () => {
-    axios.get('/api/houses').then( res=>{
+  componentDidMount = () => {
+    axios.get('/api/houses').then( res => {
+      console.log(res)
       this.setState({
         houses : res.data
       })
-    })
+    }).catch(err => console.log(err))
   }
 
   render(){
     const{ houses } = this.state
     console.log(houses);
-    const houseRender = houses.map((element) => {
-      return(element)
+    const houseRender = houses.map((element,index) => {
+      return(`${element.name} \n | ${element.address} \n| ${element.state} \n| ${element.zipcode} \n|`)
     })
     return(
       <div>
